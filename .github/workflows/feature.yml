@@ -1,0 +1,12 @@
+name: Feature Build
+  
+on: 
+  push:
+    branches: 
+      - branch**
+
+jobs:                
+  Feature:
+    if:  github.event_name == 'push' && ( github.event.ref != 'refs/heads/develop' && github.event.ref != 'refs/heads/main')
+    uses: philips-internal/ampm-lib-reusable-templates/.github/workflows/ci_build.yml@v0.1.5   
+    secrets: inherit 
